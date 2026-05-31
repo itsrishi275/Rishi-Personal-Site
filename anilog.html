@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anilog — Rishi Vinod</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F3F9F4; --bg2: #E2F0E4; --bg3: #D0E8D4;
+      --border: rgba(30,100,50,0.1); --border2: rgba(30,100,50,0.18);
+      --text: #0F2A17; --muted: #8FB89A; --muted2: #3D7A52;
+      --g1: #16A34A; --g2: #15803D; --g3: #059669; --g4: #0D9488;
+      --grad: linear-gradient(135deg, #16A34A, #059669, #0D9488);
+      --grad-text: linear-gradient(90deg, #16A34A 0%, #059669 50%, #0D9488 100%);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.6; overflow-x: hidden; cursor: none; }
+    .cursor { position: fixed; width: 10px; height: 10px; border-radius: 50%; background: var(--g2); pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.2); pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); }
+    ::-webkit-scrollbar { width: 3px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--g2); border-radius: 2px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 3rem; background: rgba(243,249,244,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 1rem; letter-spacing: 0.04em; text-transform: uppercase; background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .project-hero { padding: 10rem 3rem 5rem; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); text-decoration: none; margin-bottom: 2.5rem; transition: color 0.2s; }
+    .back-link:hover { color: var(--text); }
+    .project-type-tag { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--g2); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+    .project-type-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--g2); }
+    .project-hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .project-hero h1 .grad { background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .project-hero p.lead { font-size: 1.05rem; color: var(--muted2); max-width: 560px; line-height: 1.75; margin-bottom: 2rem; }
+    .hero-meta-row { display: flex; flex-wrap: wrap; gap: 2rem; }
+    .hero-meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero-meta-item .label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+    .hero-meta-item .value { font-size: 0.9rem; color: var(--text); font-weight: 400; }
+    .project-links-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .btn { display: inline-block; text-decoration: none; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 1.75rem; transition: all 0.25s; }
+    .btn-grad { background: var(--grad); background-size: 200% auto; color: #fff; animation: gradientShift 4s ease infinite; }
+    .btn-grad:hover { transform: translateY(-2px); }
+    .btn-outline { border: 1px solid var(--border2); color: var(--muted2); }
+    .btn-outline:hover { border-color: var(--text); color: var(--text); }
+    .content-section { padding: 5rem 3rem; border-bottom: 1px solid var(--border); }
+    .content-section:last-of-type { border-bottom: none; }
+    .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--g2); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+    .section-label::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--g2); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .content-block h2 { font-family: 'Poppins', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
+    .content-block p { font-size: 0.95rem; color: var(--muted2); line-height: 1.8; margin-bottom: 0.85rem; }
+    .content-block p strong { color: var(--text); font-weight: 400; }
+    .content-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
+    .content-block li { font-size: 0.9rem; color: var(--muted2); padding-left: 1.25rem; position: relative; line-height: 1.65; }
+    .content-block li::before { content: "↳"; position: absolute; left: 0; color: var(--g2); opacity: 0.5; }
+    .card { background: var(--bg2); border: 1px solid var(--border); padding: 1.75rem; }
+    .card h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .card p, .card li { font-size: 0.875rem; color: var(--muted2); line-height: 1.65; }
+    .card ul { list-style: none; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .card li::before { content: "·"; color: var(--g2); margin-right: 0.4rem; }
+    .tag { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border: 1px solid var(--border2); color: var(--muted2); display: inline-block; }
+    .tags-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    img.full { width: 100%; display: block; }
+    footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @keyframes gradientShift { 0% { background-position: 0% center; } 50% { background-position: 100% center; } 100% { background-position: 0% center; } }
+    @media (max-width: 900px) { nav { padding: 1.25rem 1.5rem; } .project-hero { padding: 8rem 1.5rem 4rem; } .content-section { padding: 4rem 1.5rem; } .two-col { grid-template-columns: 1fr; gap: 2.5rem; } .three-col { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 0.5rem; text-align: center; } }
+    @media (max-width: 600px) { body { cursor: auto; } .cursor, .cursor-ring { display: none; } .nav-links { display: none; } }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); overflow: hidden; }
+    .feature-card { background: var(--bg); padding: 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
+    .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+    .feature-card:hover { background: var(--bg2); } .feature-card:hover::before { transform: scaleX(1); }
+    .feature-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .feature-card h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.875rem; color: var(--muted2); line-height: 1.65; }
+    .tech-stack { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .tech-item { background: var(--bg); padding: 1.5rem; text-align: center; }
+    .tech-item .tech-name { font-family: 'Poppins', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 0.25rem; }
+    .tech-item .tech-role { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .quote-block { background: var(--bg2); border-left: 3px solid var(--g2); padding: 2rem; margin: 2rem 0; }
+    .quote-block p { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--text); line-height: 1.5; font-style: italic; }
+    @media(max-width:900px) { .feature-grid { grid-template-columns: 1fr; } .tech-stack { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <nav>
+    <a href="index.html" class="nav-logo">RV</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#projects">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="project-hero">
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    <div class="project-type-tag">Personal Project · Mobile App</div>
+    <h1><span class="grad">Anilog</span></h1>
+    <p class="lead">A Pokédex-inspired wildlife scanner that uses computer vision and GPT-4o to identify animals from a photo — delivering species info, ecological context, and fun facts instantly.</p>
+    <div class="hero-meta-row">
+      <div class="hero-meta-item"><span class="label">Role</span><span class="value">Solo Builder</span></div>
+      <div class="hero-meta-item"><span class="label">Stack</span><span class="value">Python · Flask · OpenAI API</span></div>
+      <div class="hero-meta-item"><span class="label">Hosting</span><span class="value">Railway</span></div>
+      <div class="hero-meta-item"><span class="label">Status</span><span class="value">Live</span></div>
+    </div>
+    <div class="project-links-row">
+      <a href="https://anilog-production-a625.up.railway.app/" target="_blank" class="btn btn-grad">View Live App ↗</a>
+      <a href="https://github.com/rishivinod7" target="_blank" class="btn btn-outline">GitHub ↗</a>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-label reveal">The Idea</div>
+    <div class="two-col">
+      <div class="content-block reveal">
+        <h2>Why I Built It</h2>
+        <p>Growing up, the Pokédex was the ultimate fantasy — point a device at something and instantly know everything about it. Anilog is that idea made real, but for the actual natural world.</p>
+        <p>The project started as a weekend experiment to see how far GPT-4o's vision capabilities could go with wildlife identification. The answer: surprisingly far. So I built it into a proper deployed app.</p>
+        <div class="quote-block">
+          <p>"What if you could Shazam a bird?"</p>
+        </div>
+      </div>
+      <div class="content-block reveal">
+        <h2>What It Does</h2>
+        <ul>
+          <li>Upload or snap a photo of any animal</li>
+          <li>GPT-4o analyses the image using vision capabilities</li>
+          <li>Returns species name, classification, habitat, diet, conservation status, and fun facts</li>
+          <li>Clean mobile-first UI designed for use outdoors</li>
+          <li>Fully deployed and accessible from any device</li>
+        </ul>
+        <div class="tags-row">
+          <span class="tag">Computer Vision</span><span class="tag">GPT-4o</span><span class="tag">Flask</span>
+          <span class="tag">Railway</span><span class="tag">Mobile-first</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-label reveal">Features</div>
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon">📷</div>
+        <h3>Image Recognition</h3>
+        <p>Upload any photo and GPT-4o's vision model analyses the animal — works across species from common pets to rare wildlife.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">🔬</div>
+        <h3>Species Intelligence</h3>
+        <p>Returns scientific name, family, habitat, diet, and conservation status — structured data presented in a readable format.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon">⚡</div>
+        <h3>Instant Results</h3>
+        <p>Fast API response times with a clean loading state. Built to feel snappy even on mobile connections in the field.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-label reveal">Tech Stack</div>
+    <div class="tech-stack reveal">
+      <div class="tech-item">
+        <div class="tech-name">Python</div>
+        <div class="tech-role">Backend logic</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Flask</div>
+        <div class="tech-role">Web framework</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">OpenAI API</div>
+        <div class="tech-role">Vision + analysis</div>
+      </div>
+      <div class="tech-item">
+        <div class="tech-name">Railway</div>
+        <div class="tech-role">Hosting & deploy</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-label reveal">Reflection</div>
+    <div class="two-col">
+      <div class="content-block reveal">
+        <h2>What I Learned</h2>
+        <p>Anilog was my first proper end-to-end deployment — from idea to a live URL. It forced me to think about <strong>product experience</strong> beyond the code: how does a result page feel when you're standing in a park? Is the loading state reassuring? Does the information hierarchy make sense on a small screen?</p>
+        <p>It also showed me how quickly multimodal AI can compress what used to be a complex ML pipeline into a single, well-prompted API call.</p>
+      </div>
+      <div class="content-block reveal">
+        <h2>What's Next</h2>
+        <ul>
+          <li>Plant identification mode (point at a flower, get the species)</li>
+          <li>Save and build your personal field guide over time</li>
+          <li>Social layer — share sightings with a community</li>
+          <li>Offline-capable mode for areas with poor connectivity</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Rishi Vinod</p>
+    <p><a href="index.html" style="color:var(--muted);text-decoration:none;">← Back to Portfolio</a></p>
+  </footer>
+  
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+    (function loop(){ rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+    const obs = new IntersectionObserver(entries => { entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'),i*80); obs.unobserve(e.target); } }); }, {threshold:0.08});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  </script>
+
+</body>
+</html>
