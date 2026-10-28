@@ -32,7 +32,6 @@
     .project-type-tag { font-size: 0.72rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: var(--g2); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
     .project-type-tag::before { content: ''; display: block; width: 24px; height: 1px; background: var(--g2); }
     .project-hero h1 { font-family: 'Poppins', sans-serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 800; line-height: 0.95; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-    .project-hero h1 .grad { background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .project-hero p.lead { font-size: 1.05rem; color: var(--muted2); max-width: 560px; line-height: 1.75; margin-bottom: 2rem; }
     .hero-meta-row { display: flex; flex-wrap: wrap; gap: 2rem; }
     .hero-meta-item { display: flex; flex-direction: column; gap: 0.2rem; }
@@ -40,60 +39,68 @@
     .hero-meta-item .value { font-size: 0.9rem; color: var(--text); font-weight: 400; }
     .project-links-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
     .btn { display: inline-block; text-decoration: none; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 1.75rem; transition: all 0.25s; }
-    .btn-grad { background: var(--grad); background-size: 200% auto; color: #fff; animation: gradientShift 4s ease infinite; }
-    .btn-grad:hover { transform: translateY(-2px); }
     .btn-outline { border: 1px solid var(--border2); color: var(--muted2); }
     .btn-outline:hover { border-color: var(--text); color: var(--text); }
     .content-section { padding: 5rem 3rem; border-bottom: 1px solid var(--border); }
-    .content-section:last-of-type { border-bottom: none; }
     .section-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--g2); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
     .section-label::after { content: ''; flex: 0 0 32px; height: 1px; background: var(--g2); }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .content-block h2 { font-family: 'Poppins', sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
     .content-block p { font-size: 0.95rem; color: var(--muted2); line-height: 1.8; margin-bottom: 0.85rem; }
     .content-block p strong { color: var(--text); font-weight: 400; }
     .content-block ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
     .content-block li { font-size: 0.9rem; color: var(--muted2); padding-left: 1.25rem; position: relative; line-height: 1.65; }
     .content-block li::before { content: "↳"; position: absolute; left: 0; color: var(--g2); opacity: 0.5; }
-    .card { background: var(--bg2); border: 1px solid var(--border); padding: 1.75rem; }
-    .card h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
-    .card p, .card li { font-size: 0.875rem; color: var(--muted2); line-height: 1.65; }
-    .card ul { list-style: none; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.35rem; }
-    .card li::before { content: "·"; color: var(--g2); margin-right: 0.4rem; }
+    .content-block li strong { color: var(--text); font-weight: 400; }
     .tag { font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border: 1px solid var(--border2); color: var(--muted2); display: inline-block; }
     .tags-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
-    img.full { width: 100%; display: block; }
-    img.contained { max-width: 100%; display: block; }
     footer { padding: 2rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     footer p { font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-    @keyframes gradientShift { 0% { background-position: 0% center; } 50% { background-position: 100% center; } 100% { background-position: 0% center; } }
-    @media (max-width: 900px) { nav { padding: 1.25rem 1.5rem; } .project-hero { padding: 8rem 1.5rem 4rem; } .content-section { padding: 4rem 1.5rem; } .two-col { grid-template-columns: 1fr; gap: 2.5rem; } .three-col { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 0.5rem; text-align: center; } }
-    @media (max-width: 600px) { body { cursor: auto; } .cursor, .cursor-ring { display: none; } .nav-links { display: none; } }
 
-    .screen-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-    .screen-img { border-radius: 12px; overflow: hidden; background: var(--bg3); aspect-ratio: 9/16; display: flex; align-items: center; justify-content: center; }
-    .screen-img img { width: 100%; height: 100%; object-fit: cover; }
-    .screen-placeholder { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; padding: 1rem; }
-    .pain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .pain-card { background: var(--bg); padding: 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
-    .pain-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
-    .pain-card:hover { background: var(--bg2); } .pain-card:hover::before { transform: scaleX(1); }
-    .pain-num { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 800; background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; opacity: 0.15; margin-bottom: 0.75rem; }
-    .pain-card h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
-    .pain-card p { font-size: 0.875rem; color: var(--muted2); line-height: 1.65; }
-    .quote-block { background: var(--bg2); border-left: 3px solid var(--g2); padding: 2rem; margin: 2rem 0; }
-    .quote-block p { font-family: 'Poppins', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--text); line-height: 1.5; font-style: italic; }
-    .study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    @media(max-width:900px){ .screen-grid { grid-template-columns: repeat(2,1fr); } .pain-grid { grid-template-columns: 1fr; } .study-grid { grid-template-columns: 1fr; } }
+    .logo-title img { height: clamp(5rem, 11vw, 8.5rem); width: auto; display: block; }
+    .btn-brand { background: #4F57BA; color: #fff; }
+    .btn-brand:hover { background: #3F469E; transform: translateY(-2px); }
+
+    /* Screenshots: the frame clips the browser scrollbar captured on the right edge */
+    .shot { border-radius: 14px; overflow: hidden; background: #1a1730; border: 1px solid var(--border2); box-shadow: 0 24px 60px rgba(40,20,100,0.18); }
+    .shot img { display: block; width: 101.8%; height: auto; }
+    .shot-hero { padding: 0 3rem 5rem; border-bottom: 1px solid var(--border); }
+    .shot-hero .shot { max-width: 1000px; margin: 0 auto; }
+    .shot-hero .shot img { width: 101.8%; }
+    .shot-caption { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 1rem; letter-spacing: 0.04em; }
+
+    .showcase { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .showcase + .showcase { margin-top: 5rem; }
+    .showcase.flip .shot { order: 2; }
+
+    .feature-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .feature-card { background: var(--bg); padding: 2rem; position: relative; overflow: hidden; transition: background 0.3s; }
+    .feature-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: #4F57BA; transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+    .feature-card:hover { background: var(--bg2); } .feature-card:hover::before { transform: scaleX(1); }
+    .feature-num { font-family: 'Poppins', sans-serif; font-size: 2rem; font-weight: 800; color: #4F57BA; opacity: 0.18; margin-bottom: 0.75rem; }
+    .feature-card h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.875rem; color: var(--muted2); line-height: 1.65; }
+
+    .intent-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0; }
+    .intent { font-family: 'Poppins', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; padding: 0.3rem 0.65rem; border-radius: 4px; }
+
+    .live-band { display: flex; align-items: center; gap: 2.5rem; padding: 4rem 3rem; background: #4F57BA; color: #fff; text-decoration: none; transition: background 0.3s; }
+    .live-band:hover { background: #3F469E; }
+    .live-band img { height: 5rem; width: auto; flex-shrink: 0; }
+    .live-band-text { display: flex; flex-direction: column; gap: 0.35rem; }
+    .live-band-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.75; }
+    .live-band-url { font-family: 'Poppins', sans-serif; font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+
+    @media (max-width: 900px) { nav { padding: 1.25rem 1.5rem; } .project-hero { padding: 8rem 1.5rem 4rem; } .shot-hero { padding: 0 1.5rem 4rem; } .content-section { padding: 4rem 1.5rem; } .two-col, .showcase { grid-template-columns: 1fr; gap: 2.5rem; } .showcase.flip .shot { order: 0; } .feature-grid { grid-template-columns: 1fr; } footer { flex-direction: column; gap: 0.5rem; text-align: center; } }
+    @media (max-width: 600px) { body { cursor: auto; } .cursor, .cursor-ring { display: none; } .nav-links { display: none; } .live-band { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 3rem 1.5rem; } .live-band img { height: 3.5rem; } }
   </style>
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
-    <nav>
+  <nav>
     <a href="index.html" class="nav-logo">RV</a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
@@ -104,19 +111,22 @@
 
   <div class="project-hero">
     <a href="index.html" class="back-link">← Back to Portfolio</a>
-    <div class="project-type-tag">UX Case Study · Personal Project</div>
-    <h1><span class="grad">Gigl</span></h1>
-    <p class="lead">A platform connecting musicians with gig opportunities and helping them form bands — designed end-to-end from user research through to a high-fidelity Figma prototype.</p>
+    <div class="project-type-tag">Live Product · Design &amp; Development</div>
+    <h1 class="logo-title"><img src="assets/gigl/gigl-logo.svg" alt="Gigl" /></h1>
+    <p class="lead">A web app for musicians to find people who match their tempo. Find bandmates, jam partners, students and gigs in your city, then connect and chat. I designed and built it myself, from the first research interviews to the live site.</p>
     <div class="hero-meta-row">
-      <div class="hero-meta-item"><span class="label">Role</span><span class="value">UX Designer / Researcher</span></div>
-      <div class="hero-meta-item"><span class="label">Tools</span><span class="value">Figma, Adobe XD</span></div>
-      <div class="hero-meta-item"><span class="label">Type</span><span class="value">Mobile App</span></div>
-      <div class="hero-meta-item"><span class="label">Status</span><span class="value">Prototype Complete</span></div>
+      <div class="hero-meta-item"><span class="label">Role</span><span class="value">Designer &amp; Developer</span></div>
+      <div class="hero-meta-item"><span class="label">Stack</span><span class="value">Next.js, Supabase, Tailwind</span></div>
+      <div class="hero-meta-item"><span class="label">Type</span><span class="value">Web App</span></div>
+      <div class="hero-meta-item"><span class="label">Status</span><span class="value">Live</span></div>
     </div>
     <div class="project-links-row">
-      <a href="https://www.figma.com/proto/PniGkEWG5WJGgs0pUwliip/Gigl-Wireframes?node-id=2%3A65&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A65&show-proto-sidebar=1" target="_blank" class="btn btn-grad">View Prototype ↗</a>
-      <a href="https://www.rishivinod.com/_files/ugd/21da33_66e7974f53ff4ecd844e3d911e76beab.pdf" target="_blank" class="btn btn-outline">Slide Deck ↗</a>
+      <a href="https://gigl.live" target="_blank" rel="noopener" class="btn btn-brand">Visit gigl.live ↗</a>
     </div>
+  </div>
+
+  <div class="shot-hero">
+    <div class="shot reveal"><img src="assets/gigl/landing.jpg" alt="Gigl landing page: Find people who match your tempo" /></div>
   </div>
 
   <div class="content-section">
@@ -124,128 +134,117 @@
     <div class="two-col">
       <div class="content-block reveal">
         <h2>The Problem</h2>
-        <p>Independent musicians face a fragmented landscape when it comes to finding gigs and connecting with other artists. There's no centralised platform that handles discovery, booking, scheduling, and payment in one place.</p>
-        <p>Gigl was designed to bridge that gap — creating a <strong>seamless, end-to-end platform</strong> for both musicians looking for gigs and promoters looking for talent.</p>
+        <p>Independent musicians find each other through scattered group chats, social posts and word of mouth. If you need a drummer, a jam partner or a guitar teacher, there's <strong>no single place to look</strong>, and no easy way to tell what someone sounds like or what they're after.</p>
       </div>
       <div class="content-block reveal">
-        <h2>My Approach</h2>
-        <p>I followed a full double-diamond UX process: starting with user interviews and affinity mapping to uncover real pain points, then moving through storyboards, paper wireframes, low-fidelity prototypes, two rounds of usability testing, and finally a polished high-fidelity prototype in Figma.</p>
-        <div class="tags-row">
-          <span class="tag">User Interviews</span><span class="tag">Affinity Mapping</span><span class="tag">Wireframing</span>
-          <span class="tag">Usability Testing</span><span class="tag">Figma</span><span class="tag">Prototyping</span>
+        <h2>What Gigl Does</h2>
+        <p>Every musician gets a profile that shows their instruments, genres, sound and <strong>what they're looking for right now</strong>. You browse musicians nearby, filter down to the right fit, send a connect request, and chat once it's accepted.</p>
+        <div class="intent-row">
+          <span class="intent" style="background:#6CA34D">Open to Jamming</span>
+          <span class="intent" style="background:#4080C5">Looking for Bandmates</span>
+          <span class="intent" style="background:#f59e0b">Available for Gigs</span>
+          <span class="intent" style="background:#0d9488">Open to Teaching</span>
+          <span class="intent" style="background:#c026d3">Looking to Learn</span>
         </div>
       </div>
     </div>
   </div>
 
   <div class="content-section">
-    <div class="section-label reveal">Pain Points</div>
-    <div class="pain-grid">
-      <div class="pain-card reveal">
-        <div class="pain-num">01</div>
-        <h3>Finding Gigs</h3>
-        <p>Artists struggle to discover nearby opportunities. Promoters have no easy way to surface and compare talent for their venues.</p>
+    <div class="section-label reveal">Key Features</div>
+    <div class="showcase">
+      <div class="shot reveal"><img src="assets/gigl/discover.jpg" alt="Gigl Discover grid showing musician cards with intent stickers" /></div>
+      <div class="content-block reveal">
+        <h2>Discover musicians nearby</h2>
+        <p>A paginated grid of musicians that you can filter by <strong>city, instrument, genre, intent</strong> and the role someone is looking for. Each card shows the person's intents as colour-coded stickers, so you can tell at a glance who wants to jam, gig or form a band.</p>
+        <p>City search covers thousands of places worldwide and runs on the server using GeoNames data, so the full dataset never loads in the browser.</p>
       </div>
-      <div class="pain-card reveal">
-        <div class="pain-num">02</div>
-        <h3>Booking & Scheduling</h3>
-        <p>Both artists and promoters lack a unified place to manage bookings, confirmations, and calendar coordination.</p>
-      </div>
-      <div class="pain-card reveal">
-        <div class="pain-num">03</div>
-        <h3>Payment & Reliability</h3>
-        <p>Artists frequently deal with late or unreliable payments and have no structured way to enforce agreements with organisers.</p>
+    </div>
+    <div class="showcase flip">
+      <div class="shot reveal"><img src="assets/gigl/profile.jpg" alt="Gigl musician profile with vinyl record, bio and a classified WANTED card" /></div>
+      <div class="content-block reveal">
+        <h2>Profiles with personality</h2>
+        <p>Profiles are styled like a record sleeve with a vinyl disc behind it. <strong>The disc's colour changes with the musician's intents</strong>: the server recolours an SVG for each profile.</p>
+        <ul>
+          <li><strong>Demo clips:</strong> upload audio so people can hear you before they reach out</li>
+          <li><strong>WANTED card:</strong> a classified-ad style card listing the exact roles you need</li>
+          <li><strong>Favourite artists:</strong> search powered by the Deezer API</li>
+          <li><strong>Profile preview:</strong> see exactly how your profile looks to other people</li>
+        </ul>
       </div>
     </div>
   </div>
 
   <div class="content-section">
-    <div class="section-label reveal">Research</div>
+    <div class="section-label reveal">More Features</div>
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="feature-num">01</div>
+        <h3>Connect &amp; Chat</h3>
+        <p>Send a connect request, accept or decline it from your inbox, and message each other once you're connected. Everything happens inside the app.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">02</div>
+        <h3>Notifications</h3>
+        <p>In-app alerts for new connect requests, accepted requests and new messages, so you don't miss a conversation.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">03</div>
+        <h3>Events</h3>
+        <p>List upcoming gigs and jam sessions on your profile with the date, venue and a ticket link.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">04</div>
+        <h3>Lessons</h3>
+        <p>Teachers list what they teach, the levels they take and whether lessons are in person or online. Learners say which instruments they want to pick up.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">05</div>
+        <h3>Share Your Profile</h3>
+        <p>Every musician gets a username link and a QR code, which are easy to hand out at a gig or drop in a bio.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-num">06</div>
+        <h3>Safety Built In</h3>
+        <p>You can report or block anyone. Reports go to an admin review queue, members must be 16 or older, and teachers 18 or older.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="section-label reveal">Under the Hood</div>
     <div class="two-col">
       <div class="content-block reveal">
-        <h2>Who I Designed For</h2>
-        <p>User research identified two distinct primary groups with overlapping but distinct needs:</p>
-        <ul>
-          <li><strong>Musicians</strong> — solo artists and bands seeking gig opportunities, want to be discoverable and manage their schedule</li>
-          <li><strong>Promoters</strong> — venue owners and event organisers seeking talent, want to browse, contact, and book artists efficiently</li>
-        </ul>
-        <p>I created detailed personas for each group to ground all subsequent design decisions in real user motivations and frustrations.</p>
+        <h2>How it's built</h2>
+        <p>Gigl runs on <strong>Next.js</strong> (App Router, React 19) with <strong>Supabase</strong> for the database, sign-in and file storage, so there's no separate backend. Row-level security rules in the database decide what each user can read and change.</p>
+        <p>It's deployed on <strong>Vercel</strong>, and every push to the main branch goes live.</p>
+        <div class="tags-row">
+          <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Supabase</span><span class="tag">Postgres</span>
+          <span class="tag">Tailwind CSS</span><span class="tag">Vercel</span><span class="tag">Deezer API</span>
+        </div>
       </div>
       <div class="content-block reveal">
-        <h2>Key Insight</h2>
-        <div class="quote-block">
-          <p>"Musicians don't just want to be hired. They want to be discovered, trusted, and paid fairly — in that order."</p>
-        </div>
-        <p>This shaped Gigl's core feature hierarchy: profile-first discoverability, then booking, then an integrated payment and review system.</p>
+        <h2>From prototype to product</h2>
+        <p>Gigl started as a UX case study. I interviewed musicians and promoters, mapped their pain points, and tested a Figma prototype over two rounds. That research shaped the core idea: <strong>musicians want to be discovered and trusted before they're hired</strong>.</p>
+        <p>The live app builds on that foundation. Its scope has grown from booking gigs to everything musicians need to find each other.</p>
+        <a href="https://www.figma.com/proto/PniGkEWG5WJGgs0pUwliip/Gigl-Wireframes?node-id=2%3A65&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A65&show-proto-sidebar=1" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:0.5rem;">Original Prototype ↗</a>
       </div>
     </div>
   </div>
 
-  <div class="content-section">
-    <div class="section-label reveal">Design Process</div>
-    <div class="three-col">
-      <div class="card reveal">
-        <h3>Paper Wireframes</h3>
-        <p>Rapid sketching to explore navigation patterns and screen layouts before committing to digital tools. Multiple iterations helped identify the right information hierarchy for artist profiles and discovery flows.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Lo-fi Prototype</h3>
-        <p>Built in Figma with basic components and tested with real users in Round 1. Feedback highlighted missing features: users wanted a review system and a reporting/feedback mechanism.</p>
-      </div>
-      <div class="card reveal">
-        <h3>Hi-fi Prototype</h3>
-        <p>Full visual design pass with a modern, clean aesthetic. Round 2 usability testing showed high satisfaction across core flows, with one addition: a payment reminder feature for post-booking follow-up.</p>
-      </div>
+  <a href="https://gigl.live" target="_blank" rel="noopener" class="live-band reveal">
+    <img src="assets/gigl/gigl-logo-white.svg" alt="Gigl" />
+    <div class="live-band-text">
+      <span class="live-band-label">Gigl is live</span>
+      <span class="live-band-url">gigl.live ↗</span>
     </div>
-  </div>
-
-  <div class="content-section">
-    <div class="section-label reveal">Usability Testing</div>
-    <div class="study-grid">
-      <div class="card reveal">
-        <h3>Round 1 — Lo-fi</h3>
-        <ul>
-          <li>Users wanted to view and post reviews</li>
-          <li>Feedback and reporting system missing</li>
-          <li>Some UI component placement issues identified</li>
-        </ul>
-      </div>
-      <div class="card reveal">
-        <h3>Round 2 — Hi-fi</h3>
-        <ul>
-          <li>Users satisfied with all core features</li>
-          <li>Payment reminder feature requested</li>
-          <li>Overall UI described as clean and easy to navigate</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="content-section">
-    <div class="section-label reveal">Final Screens</div>
-    <div class="content-block reveal" style="margin-bottom:2rem;">
-      <p>The final prototype covers the full user journey from onboarding through discovery, booking, chat, and payment confirmation. Key screens below — or explore the full prototype in Figma.</p>
-    </div>
-    <div class="screen-grid">
-      <div class="screen-img reveal"><div class="screen-placeholder">Welcome Screen<br/><span style="opacity:0.5;font-size:0.6rem">View in Figma prototype</span></div></div>
-      <div class="screen-img reveal"><div class="screen-placeholder">Discover Artists</div></div>
-      <div class="screen-img reveal"><div class="screen-placeholder">Artist Profile</div></div>
-      <div class="screen-img reveal"><div class="screen-placeholder">Chat & Booking</div></div>
-      <div class="screen-img reveal"><div class="screen-placeholder">Pre-Booking Flow</div></div>
-      <div class="screen-img reveal"><div class="screen-placeholder">Post-Booking</div></div>
-      <div class="screen-img reveal"><div class="screen-placeholder">Payment Confirm</div></div>
-      <div class="screen-img reveal"><div class="screen-placeholder">Reviews</div></div>
-    </div>
-    <div style="margin-top:2rem;" class="reveal">
-      <a href="https://www.figma.com/proto/PniGkEWG5WJGgs0pUwliip/Gigl-Wireframes?node-id=2%3A65&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A65&show-proto-sidebar=1" target="_blank" class="btn btn-grad">Explore Full Prototype ↗</a>
-    </div>
-  </div>
+  </a>
 
   <footer>
     <p>© 2026 Rishi Vinod</p>
     <p><a href="index.html" style="color:var(--muted);text-decoration:none;">← Back to Portfolio</a></p>
   </footer>
-  
+
   <script>
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
